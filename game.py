@@ -9,12 +9,12 @@ def comp_op(pick):
 
 def game():
     print("""
-        -----Welcome to Gaming Console 3000----
-        You can:
-        - play 'Rock, Paper, Scissors' -- type 'rpc'
-        - play 'Guess Number' -- type 'gn'
-        - or quit  -- type 'quit'
-        """)
+--------Welcome to Gaming Console 3000-------
+You can:
+1) Play 'Rock, Paper, Scissors' -- type 'rpc'
+2) Play 'Guess the Number' -- type 'gn'
+3) Quit  -- type 'quit'
+""")
 
     while True:
         action = input("What would you like to do? ")
@@ -23,23 +23,21 @@ def game():
 
         elif action.lower() == 'rules':
             print("""
-            ---------The Rules---------
-            -Rock beats scissors
-            -scissors beats paper
-            -paper beats rock
+---------The Rules---------
+-Rock beats Scissors
+-Scissors beats Paper
+-Paper beats Rock
 
-            capice?
+Capice?
             """)
 
         elif action not in info:
             print("""
-        -------------ERROR-------------
-        What you have entered is
-        not an option...
-        You can:
-        - view the rules -- type 'rules'
-        - play the game -- type 'play'
-        - or quit  -- type 'quit'
+-----------!!ERROR!!------------
+Please remember, you can:
+- view the rules -- type 'rules'
+- play the game -- type 'play'
+- or quit  -- type 'quit'
         """)
             
         elif action.lower() == 'rpc':
@@ -51,11 +49,11 @@ def game():
 def rpc():           
     comp_choice = comp_op(options)
     user_choice = input("""
-        ---------The Game---------  
-        Please enter object: 
-            1: rock 
-            2: paper 
-            3: scissors 
+---------The Game---------  
+Please enter an object: 
+    - rock 
+    - paper 
+    - scissors  
         """)
     
     if user_choice == comp_choice:
@@ -73,13 +71,12 @@ def rpc():
             print("You win this round!")
         elif user_choice not in options:
             print("""
-        ---------ERROR---------
-        What you have entered is
-            not an option...  
-        Please enter object: 
-            1: rock 
-            2: paper 
-            3: scissors 
+            
+-----------!!ERROR!!------------ 
+As a reminder, your choices are: 
+    - rock 
+    - paper 
+    - scissors 
         """)
         else:
             print(f"The computer picked {comp_choice}")
@@ -91,19 +88,19 @@ def gn():
         user_choice = ''
         while user_choice != 'quit' or user_choice != choice:
             user_choice = int(input("""
-            ---------Random Number Game---------  
-            Please enter a number between 1 and 10
+---------Random Number Game---------  
+Please enter a number between 1 and 10
             """))
             if user_choice == choice:
                 
                 user_choice2 = input(f"""
-        ---------YOU WIN!---------
-        It took you {user_score + 1} tries...
-        your mother would be proud
+                
+------------CORRECT GUESS!------------
+It took you {user_score + 1} attempts.
 
-        You can:
-        - To return to the main menu, type 'menu'
-        - If you would like to play again, type 'play'
+You can:
+1) To return to the main menu -- type 'menu'
+2) If you would like to play again -- type 'play'
         """)
                 if user_choice2.lower() == 'play':
                     gn()
@@ -112,7 +109,6 @@ def gn():
             else:
                 print("You guessed the wrong number. :(")
                 user_score += 1
-
 
 game()
 
